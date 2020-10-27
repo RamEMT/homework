@@ -27,7 +27,7 @@ public class TestMain2 {
         address.setUid(2);
         int i = addressMapper.insertAddress(address);
 
-
+        System.out.println(i);
         
     }
 }
