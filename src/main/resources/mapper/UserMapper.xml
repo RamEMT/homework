@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.homework.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.mybatis.homework.entity.User">
+        <id property="uid" column="uid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+
+    <!-- 声明一对多的关系，并继承 BaseResultMap -->
+    <resultMap id="CollectionResultMap" type="com.mybatis.homework.entity.User" extends="BaseResultMap">
+        <!--  -->
+        <collection property="addressList" resultMap="com.mybatis.homework.mapper.AddressMapper.BaseResultMap"/>
+    </resultMap>
+
+    <!-- 获取 CollectionResultMap 结果 -->
+    <select id="selectUserById" resultMap="CollectionResultMap">
+        select u.uid,
+               u.username,
+               u.password,
+               u.phone,
+               a.aid,
+               a.province,
+               a.city,
+               a.district,
+               a.detailed,
+               a.status
+        from user u
+                     left join address a on u.uid = a.uid
+        where a.is_del = 0
+          and a.uid = #{uid};
+    </select>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.homework.mapper.AddressMapper">
+    <resultMap id="BaseResultMap" type="com.mybatis.homework.entity.Address">
+        <id property="aid" column="aid"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="district" column="district"/>
+        <result property="detailed" column="detailed"/>
+        <result property="uid" column="uid"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <!-- 添加地址 -->
+    <insert id="insertAddress">
+        insert into address (province, city, district, detailed, uid)
+        VALUES (#{address.province}, #{address.city}, #{address.district}, #{address.detailed}, #{address.uid})
+    </insert>
+
+    <!-- 修改默认地址 -->
+    <update id="updateDefaultAddress">
+        update address set status = 1 where aid = #{aid}
+    </update>
+
+    <!-- 修改地址信息 -->
+    <update id="updateAddress">
+        update address
+        set province = #{address.province},
+            city     = #{address.city},
+            district = #{address.district},
+            detailed = #{address.detailed}
+        where aid = #{address.aid}
+    </update>
+
+    <!-- 删除地址信息 -->
+    <update id="deleteAddress">
+        update address set is_del = 1 where aid = #{aid}
+    </update>
+</mapper>
