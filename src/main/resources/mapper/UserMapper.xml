@@ -14,7 +14,7 @@
 
     <!-- 声明一对多的关系，并继承 BaseResultMap -->
     <resultMap id="CollectionResultMap" type="com.mybatis.homework.entity.User" extends="BaseResultMap">
-        <!--  -->
+        <!-- collection -->
         <collection property="addressList" resultMap="com.mybatis.homework.mapper.AddressMapper.BaseResultMap"/>
     </resultMap>
 

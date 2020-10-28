@@ -22,7 +22,9 @@
 
     <!-- 修改默认地址 -->
     <update id="updateDefaultAddress">
-        update address set status = 1 where aid = #{aid}
+        update address
+        set status = 1
+        where aid = #{aid}
     </update>
 
     <!-- 修改地址信息 -->
@@ -31,12 +33,15 @@
         set province = #{address.province},
             city     = #{address.city},
             district = #{address.district},
-            detailed = #{address.detailed}
+            detailed = #{address.detailed},
+            uid      = #{address.uid}
         where aid = #{address.aid}
     </update>
 
     <!-- 删除地址信息 -->
     <update id="deleteAddress">
-        update address set is_del = 1 where aid = #{aid}
+        update address
+        set is_del = 1
+        where aid = #{aid}
     </update>
 </mapper>
