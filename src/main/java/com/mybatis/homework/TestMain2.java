@@ -20,11 +20,12 @@ public class TestMain2 {
         AddressMapper addressMapper = sqlSession.getMapper(AddressMapper.class);
 
         Address address = new Address();
+        address.setPhone("120");
         address.setProvince("广西省");
         address.setCity("南宁市");
         address.setDistrict("兴宁区");
         address.setDetailed("朝阳广场");
-        address.setUid(2);
+        address.setUid(1);
         int i = addressMapper.insertAddress(address);
 
         System.out.println(i);

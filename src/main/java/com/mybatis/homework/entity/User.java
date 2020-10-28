@@ -22,11 +22,6 @@ public class User {
     private String password;
 
     /**
-     * 联系方式
-     */
-    private String phone;
-
-    /**
      * 状态码 0表示未删除 1表示删除
      */
     private Integer isDel;
@@ -61,14 +56,6 @@ public class User {
         this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public Integer getIsDel() {
         return isDel;
     }
@@ -91,9 +78,9 @@ public class User {
                 "uid=" + uid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
                 ", addressList=" + addressList +
                 '}';
     }
 }
+
 

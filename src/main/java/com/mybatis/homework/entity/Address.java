@@ -10,6 +10,11 @@ public class Address {
     private Integer aid;
 
     /**
+     * 联系方式
+     */
+    private String phone;
+
+    /**
      * 省份
      */
     private String province;
@@ -35,12 +40,12 @@ public class Address {
     private Integer uid;
 
     /**
-     * 状态码 0表示不是默认地址 1表示默认地址
+     * 状态码 0表示不是默认收藏 1表示默认收藏
      */
     private Integer status;
 
     /**
-     * 0表示未删除 1表示删除
+     * 状态码 0表示未删除 1表示删除
      */
     private Integer isDel;
 
@@ -50,6 +55,14 @@ public class Address {
 
     public void setAid(Integer aid) {
         this.aid = aid;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getProvince() {
@@ -106,19 +119,6 @@ public class Address {
 
     public void setIsDel(Integer isDel) {
         this.isDel = isDel;
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "aid=" + aid +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
-                ", district='" + district + '\'' +
-                ", detailed='" + detailed + '\'' +
-                ", uid=" + uid +
-                ", status=" + status +
-                '}';
     }
 }
 

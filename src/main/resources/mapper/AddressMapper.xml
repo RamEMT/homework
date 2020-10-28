@@ -6,6 +6,7 @@
 <mapper namespace="com.mybatis.homework.mapper.AddressMapper">
     <resultMap id="BaseResultMap" type="com.mybatis.homework.entity.Address">
         <id property="aid" column="aid"/>
+        <result property="phone" column="phone"/>
         <result property="province" column="province"/>
         <result property="city" column="city"/>
         <result property="district" column="district"/>
@@ -16,8 +17,8 @@
 
     <!-- 添加地址 -->
     <insert id="insertAddress">
-        insert into address (province, city, district, detailed, uid)
-        VALUES (#{address.province}, #{address.city}, #{address.district}, #{address.detailed}, #{address.uid})
+        insert into address (phone,province, city, district, detailed, uid)
+        VALUES (#{address.phone},#{address.province}, #{address.city}, #{address.district}, #{address.detailed}, #{address.uid})
     </insert>
 
     <!-- 修改默认地址 -->
@@ -30,7 +31,8 @@
     <!-- 修改地址信息 -->
     <update id="updateAddress">
         update address
-        set province = #{address.province},
+        set phone = #{address.phone},
+            province = #{address.province},
             city     = #{address.city},
             district = #{address.district},
             detailed = #{address.detailed},

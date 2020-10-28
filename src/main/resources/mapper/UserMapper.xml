@@ -9,7 +9,6 @@
         <id property="uid" column="uid"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>
-        <result property="phone" column="phone"/>
     </resultMap>
 
     <!-- 声明一对多的关系，并继承 BaseResultMap -->
@@ -23,8 +22,8 @@
         select u.uid,
                u.username,
                u.password,
-               u.phone,
                a.aid,
+               a.phone,
                a.province,
                a.city,
                a.district,
